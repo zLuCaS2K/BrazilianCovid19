@@ -55,6 +55,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    // Kotlin Coroutines
+    implementation "androidx.room:room-ktx:2.2.6"
     // Google Maps
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     // JUnit
