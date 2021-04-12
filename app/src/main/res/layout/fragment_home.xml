@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.HomeFragment">
+
+    <ImageView
+        android:id="@+id/toolbarMainActivity"
+        style="@style/StyleToolbarImageView"
+        android:contentDescription="@null" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/blue"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/viewConfirmedSupport"
+                style="@style/ViewCardViewDecoration"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textSupportConfirmed"
+                style="@style/TextViewSupportCardView"
+                android:layout_marginTop="10dp"
+                android:text="@string/confirmeds"
+                app:layout_constraintStart_toEndOf="@id/viewConfirmedSupport"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textDataConfirmed"
+                style="@style/TextViewDataCardView"
+                app:layout_constraintStart_toStartOf="@id/textSupportConfirmed"
+                app:layout_constraintTop_toBottomOf="@id/textSupportConfirmed"
+                tools:text="2.000.000" />
+
+            <View
+                android:id="@+id/viewDeathsSupport"
+                style="@style/ViewCardViewDecoration"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textDataConfirmed" />
+
+            <TextView
+                android:id="@+id/textSupportDeaths"
+                style="@style/TextViewSupportCardView"
+                android:layout_marginTop="20dp"
+                android:text="@string/deaths"
+                app:layout_constraintBottom_toBottomOf="@id/viewDeathsSupport"
+                app:layout_constraintStart_toEndOf="@id/viewDeathsSupport"
+                app:layout_constraintTop_toTopOf="@id/textDataConfirmed" />
+
+            <TextView
+                android:id="@+id/textDataDeaths"
+                style="@style/TextViewDataCardView"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textSupportDeaths"
+                app:layout_constraintTop_toBottomOf="@id/textSupportDeaths"
+                tools:text="2.000.000" />
+
+            <ImageView
+                android:id="@+id/btnRefreshData"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/refresh"
+                android:src="@drawable/ic_refresh"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/textRefreshDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Última Atualização : 17/08/2000 18:30" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/preventions"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewPreventions"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_use_mask" />
+
+                <TextView
+                    style="@style/TextViewPreventions"
+                    android:text="@string/use_mask" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewPreventions"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_washing_hand" />
+
+                <TextView
+                    style="@style/TextViewPreventions"
+                    android:text="@string/washing_hand" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewPreventions"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_distance" />
+
+                <TextView
+                    style="@style/TextViewPreventions"
+                    android:text="@string/distance" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</LinearLayout>

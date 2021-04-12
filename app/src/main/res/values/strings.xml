@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">BrazilianCovid19</string>
+    <string name="app_name">Brazilian Covid-19</string>
+    <!-- Home Fragment -->
+    <string name="confirmeds">Confirmados</string>
+    <string name="deaths">Óbitos</string>
+    <string name="refresh">Atualizar</string>
+    <!-- Prenvenções -->
+    <string name="preventions">Prevenções</string>
+    <string name="use_mask">Use sempre mascará</string>
+    <string name="washing_hand">Lave bem as suas mãos</string>
+    <string name="distance">Mantenha distância</string>
 </resources>
