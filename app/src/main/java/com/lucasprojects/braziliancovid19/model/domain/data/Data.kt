@@ -1,4 +1,4 @@
-package com.lucasprojects.braziliancovid19.model.data
+package com.lucasprojects.braziliancovid19.model.domain.data
 
 class Data {
 
