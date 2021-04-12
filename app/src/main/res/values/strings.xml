@@ -9,4 +9,6 @@
     <string name="use_mask">Use sempre mascará</string>
     <string name="washing_hand">Lave bem as suas mãos</string>
     <string name="distance">Mantenha distância</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

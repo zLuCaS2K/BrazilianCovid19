@@ -9,7 +9,6 @@
     tools:context=".ui.fragments.HomeFragment">
 
     <ImageView
-        android:id="@+id/toolbarMainActivity"
         style="@style/StyleToolbarImageView"
         android:contentDescription="@null" />
 
