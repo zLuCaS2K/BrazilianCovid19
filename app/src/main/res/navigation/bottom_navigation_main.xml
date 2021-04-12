@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/navHome">
+
+    <fragment
+        android:id="@+id/navHome"
+        android:name="com.lucasprojects.braziliancovid19.ui.fragments.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navStates"
+        android:name="com.lucasprojects.braziliancovid19.ui.fragments.StatesListFragment"
+        tools:layout="@layout/fragment_states_list" />
+
+    <fragment
+        android:id="@+id/navMaps"
+        android:name="com.lucasprojects.braziliancovid19.ui.fragments.HeatMapFragment"
+        android:label="HeatMapFragment" />
+
+</navigation>
