@@ -4,5 +4,6 @@ import com.lucasprojects.braziliancovid19.model.services.OperationCallback
 
 interface ResponseDataSource {
     fun retrieveResponse(callback: OperationCallback<Response>)
+    fun retrieveResponseCity(callback: OperationCallback<Response>)
     fun cancel()
 }

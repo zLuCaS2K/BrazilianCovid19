@@ -8,6 +8,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.Query
 
 object APIClient {
@@ -33,10 +34,12 @@ object APIClient {
     }
 
     interface ServicesAPIInterface {
+        @Headers("Authorization: Token ${Constants.APICOVID.API_KEY}")
         @GET(Constants.APICOVID.GET_ALL)
-        fun getAllData(): Call<List<Response>?>
+        fun getAllData(): Call<Response>
 
+        @Headers("Authorization: ${Constants.APICOVID.API_KEY}")
         @GET(Constants.APICOVID.GET_CITY)
-        fun getAllCity(@Query("page_size") size: Int): Call<List<Response>?>
+        fun getAllCity(@Query("page_size") size: Int): Call<Response>
     }
 }
