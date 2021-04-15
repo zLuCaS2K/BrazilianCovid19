@@ -15,9 +15,15 @@ import java.util.*
 object Utils {
 
     fun getCurrentDateHour(context: Context): String {
-        val date = SimpleDateFormat("dd/MM/yyyy").format(Date())
-        val hour = SimpleDateFormat("HH:mm:ss").format(Date())
-        return "${context.resources.getString(R.string.last_verify)} $date $hour"
+        val nowDate = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Date())
+        return "${context.resources.getString(R.string.last_verify)} $nowDate"
+    }
+
+    fun formatDate(date : String?): String {
+        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val dateReplace = date?.replace("-", "/") as String
+        val dateString = SimpleDateFormat("yyyy/MM/dd").parse(dateReplace) as Date
+        return simpleDateFormat.format(dateString)
     }
 
     fun formatNumberData(number: Int) = DecimalFormat("#,###").format(number)

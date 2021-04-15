@@ -15,7 +15,7 @@
         android:id="@+id/recyclerStates"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        tools:listitem="@android:layout/simple_expandable_list_item_1" />
+        android:clipToPadding="false"
+        android:visibility="gone" />
 
 </LinearLayout>

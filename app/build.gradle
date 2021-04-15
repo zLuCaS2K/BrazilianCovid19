@@ -76,6 +76,8 @@ dependencies {
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha08"
     // Lottie
     implementation 'com.airbnb.android:lottie:3.7.0'
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
     // JUnit
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

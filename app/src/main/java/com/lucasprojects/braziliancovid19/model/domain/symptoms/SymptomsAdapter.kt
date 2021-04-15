@@ -1,30 +1,28 @@
 package com.lucasprojects.braziliancovid19.model.domain.symptoms
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.lucasprojects.braziliancovid19.R
+import com.lucasprojects.braziliancovid19.databinding.ItemSymptomsRecyclerBinding
 
-class SymptomsAdapter(private val listSymptoms: List<Symptoms>) : RecyclerView.Adapter<SymptomsAdapter.SymptomsViewHolder>() {
+class SymptomsAdapter(private val _listSymptoms: List<Symptoms>) : RecyclerView.Adapter<SymptomsAdapter.SymptomsViewHolder>() {
 
-    inner class SymptomsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class SymptomsViewHolder(private val itemBinding: ItemSymptomsRecyclerBinding) : RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bindData(symptoms: Symptoms) {
-            itemView.findViewById<ImageView>(R.id.imageSymptoms).setImageResource(symptoms.image)
-            itemView.findViewById<TextView>(R.id.textNameSymptoms).text = symptoms.name
+            itemBinding.imageSymptoms.setImageResource(symptoms.image)
+            itemBinding.textNameSymptoms.text = symptoms.name
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        SymptomsViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_symptoms_recycler, parent, false))
-
-    override fun onBindViewHolder(holder: SymptomsViewHolder, position: Int) {
-        holder.bindData(listSymptoms[position])
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : SymptomsViewHolder {
+        val itemBinding = ItemSymptomsRecyclerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return SymptomsViewHolder(itemBinding)
     }
 
-    override fun getItemCount() = listSymptoms.size
+    override fun onBindViewHolder(holder: SymptomsViewHolder, position: Int) {
+        holder.bindData(_listSymptoms[position])
+    }
+
+    override fun getItemCount() = _listSymptoms.size
 }
