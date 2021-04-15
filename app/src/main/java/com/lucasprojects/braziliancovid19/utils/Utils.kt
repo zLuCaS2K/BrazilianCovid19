@@ -1,8 +1,12 @@
 package com.lucasprojects.braziliancovid19.utils
 
+import android.app.Dialog
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AlertDialog
 import com.lucasprojects.braziliancovid19.R
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -17,6 +21,19 @@ object Utils {
     }
 
     fun formatNumberData(number: Int) = DecimalFormat("#,###").format(number)
+
+    fun showAlertDialog(context: Context, requestDialog: Int): Dialog {
+        val builder = AlertDialog.Builder(context)
+        val inflaterView = if (requestDialog == 1) getLayoutDialogLoading(context) else getLayoutDialogAnError(context)
+        builder.setView(inflaterView)
+        builder.setCancelable(false)
+        val alertDialog = builder.create()
+        alertDialog.window?.let {
+            it.setBackgroundDrawable(ColorDrawable(0))
+            if (requestDialog == 2) it.attributes.windowAnimations = R.style.DialogAnimationError
+        }
+        return alertDialog
+    }
 
     fun formatDeathPercent(deathPercent: Double?): String =
         DecimalFormat("#,##0.00").format(deathPercent)
@@ -62,4 +79,9 @@ object Utils {
         }
         return nameState
     }
+
+    private fun getLayoutDialogLoading(context: Context) = LayoutInflater.from(context).inflate(R.layout.dialog_loading, null)
+
+    private fun getLayoutDialogAnError(context: Context) = LayoutInflater.from(context).inflate(R.layout.dialog_error, null)
+
 }

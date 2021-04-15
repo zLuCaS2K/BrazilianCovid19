@@ -16,4 +16,17 @@
     <string name="maps">Mapa</string>
 
     <string name="last_verify">Última Verificação :</string>
+    <string name="error">Algo deu errado</string>
+    <string name="error_dialog">Ocorreu um erro ao tentar obter os dados, verifique sua conexão com a internet e tente novamente.</string>
+    <string name="try_again">Tente Novamente</string>
+    <string name="fever">Febre</string>
+    <string name="cough">Tosse seca</string>
+    <string name="fatigue">Cansaço</string>
+    <string name="pain">Dores e desconfortos</string>
+    <string name="sore_throat">Dor de garganta</string>
+    <string name="diarrhoea">Diarréia</string>
+    <string name="conjuctivitis">conjuntivite</string>
+    <string name="headache">Dor de cabeça</string>
+    <string name="loss_taste">Perda de paladar</string>
+    <string name="loss_smell">Perda do olfato</string>
 </resources>

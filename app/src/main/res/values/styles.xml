@@ -55,4 +55,9 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="DialogAnimationError">
+        <item name="android:windowEnterAnimation">@anim/side_up</item>
+        <item name="android:windowExitAnimation">@anim/side_down</item>
+    </style>
+
 </resources>

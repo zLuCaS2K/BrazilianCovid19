@@ -30,7 +30,7 @@ class MainActivityViewModel(application: Application) : ViewModel() {
 
     val mListData: LiveData<List<Data>> get() = _listResponse
     val mIsViewLoading: LiveData<Boolean> get() = _isViewLoading
-    val mAnErrorOccurred: LiveData<Boolean> get() = _isViewLoading
+    val mAnErrorOccurred: LiveData<Boolean> get() = _anErrorOccurred
     val mCounterConfirmed: LiveData<String> get() = _counterConfirmed
     val mCounterDeath: LiveData<String> get() = _counterDeath
     val mCounterDate: LiveData<String> get() = _counterDate
