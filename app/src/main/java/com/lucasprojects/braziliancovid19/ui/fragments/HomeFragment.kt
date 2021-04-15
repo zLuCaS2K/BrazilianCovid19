@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        _binding?.btnRefreshData?.setOnClickListener { mMainActivityViewModel.loadAllData() }
+        _binding?.btnRefreshData?.setOnClickListener { mMainActivityViewModel.loadAllData(mViewRoot.context) }
         super.onViewCreated(view, savedInstanceState)
     }
 

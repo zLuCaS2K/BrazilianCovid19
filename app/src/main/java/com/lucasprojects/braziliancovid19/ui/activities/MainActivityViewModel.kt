@@ -1,6 +1,7 @@
 package com.lucasprojects.braziliancovid19.ui.activities
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,6 +12,7 @@ import com.lucasprojects.braziliancovid19.model.repository.ResponseRepository
 import com.lucasprojects.braziliancovid19.model.services.OperationCallback
 import com.lucasprojects.braziliancovid19.utils.Constants
 import com.lucasprojects.braziliancovid19.utils.DataStoreApp
+import com.lucasprojects.braziliancovid19.utils.Utils
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -34,10 +36,10 @@ class MainActivityViewModel(application: Application) : ViewModel() {
     val mCounterDate: LiveData<String> get() = _counterDate
 
     init {
-        loadAllData()
+        loadAllData(application.applicationContext)
     }
 
-    fun loadAllData() {
+    fun loadAllData(context: Context) {
         _isViewLoading.postValue(true)
         _responseRepository.retrieveResponse(object : OperationCallback<Response> {
             override fun onSuccess(data: Response?) {
@@ -45,9 +47,9 @@ class MainActivityViewModel(application: Application) : ViewModel() {
                 data?.let { _listResponse.value = it.data }
                 viewModelScope.launch {
                     saveDataStoreSuspend(
-                        _listResponse.value?.sumBy { it.confirmeds!! }.toString(),
-                        _listResponse.value?.sumBy { it.deaths!! }.toString(),
-                        _listResponse.value?.first()?.date.toString()
+                        Utils.formatNumberData(_listResponse.value?.sumBy { it.confirmeds!! }!!.toInt()),
+                        Utils.formatNumberData(_listResponse.value?.sumBy { it.deaths!! }!!.toInt()),
+                        Utils.getCurrentDateHour(context)
                     )
                 }
             }
@@ -90,6 +92,12 @@ class MainActivityViewModel(application: Application) : ViewModel() {
     private suspend fun loadDataStoreSuspend() {
         _counterConfirmed.value = _dataStoreApp.readData(Constants.DATA_STORE_KEYS.KEY_CONFIRMED).first()
         _counterDeath.value = _dataStoreApp.readData(Constants.DATA_STORE_KEYS.KEY_DEATH).first()
-        _counterDate.value = _dataStoreApp.readData(Constants.DATA_STORE_KEYS.KEY_DATE).first()
+        _dataStoreApp.readData(Constants.DATA_STORE_KEYS.KEY_DATE).first().apply {
+            if (this == "0") {
+                _counterDate.value = ""
+            } else {
+                _counterDate.value = this
+            }
+        }
     }
 }

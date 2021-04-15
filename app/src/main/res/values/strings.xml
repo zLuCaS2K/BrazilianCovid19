@@ -14,4 +14,6 @@
     <string name="home">Principal</string>
     <string name="states">Estados</string>
     <string name="maps">Mapa</string>
+
+    <string name="last_verify">Última Verificação :</string>
 </resources>
