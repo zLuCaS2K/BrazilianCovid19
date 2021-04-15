@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/zLuCaS2K/BrazilianCovid19/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" width="150"></p>
+<p align="center"><img src="https://github.com/zLuCaS2K/BrazilianCovid19/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width="150"></p>
 <h2 align="center">
   Brazilian Covid-19
 </h2>
@@ -19,6 +19,7 @@
 ## Conteúdo
 <ul>
   <li><a href="#-getting-started">Começando</a></li>
+  <li><a href="#-show-screenshots">Começando</a></li>
   <li><a href="#-features">Funcionalidades</a></li>
   <li><a href="#-support">Contato</a></li>
   <li><a href="#-license">Licença</a></li>
@@ -34,19 +35,31 @@
 $ git clone https://github.com/zLuCaS2K/BrazilianCovid19.git
 ```
 
+- Obtenha sua KEY da API [Brasil.io](https://brasil.io/auth/entrar/) e insira no [API_KEY](https://github.com/zLuCaS2K/BrazilianCovid19/blob/master/app/src/main/java/com/lucasprojects/braziliancovid19/utils/Constants.kt) no diretório:
+
+```
+  app/src/main/java/com/lucasprojects/braziliancovid19/utils/Constants.kt
+```
+
+## 📱 Screenshots
+<img src="https://user-images.githubusercontent.com/52612637/114952113-f704c780-9e2b-11eb-8e24-13a0a01746cf.png" width="316" height="650">
+<img src="https://user-images.githubusercontent.com/52612637/114952190-21568500-9e2c-11eb-9c2c-f4f7a1ad1198.png" width="316" height="650">
+
 ---
 ## 📋 Funcionalidades
 ### Documentação
-- [ ] Dicas de prevenção.
-- [ ] Barra de navegação inferior.
-- [ ] Visão geral da situação de casos confirmados e óbitos no Brasil.
-- [ ] Listagem da situação de cada estado do país.
+- [x] Dicas de prevenção.
+- [x] Barra de navegação inferior.
+- [x] Visão geral da situação de casos confirmados e óbitos no Brasil.
+- [x] Listagem da situação de cada estado do país.
 - [ ] Mapa de calor.
 - [ ] Banco de dados usando room para uso offiline.
 
 ### Construído com
 - Linguagem
   - [Kotlin](https://kotlinlang.org/) - A modern programming language that makes developers happier.
+- Arquitetura
+  - [MVVM](https://developer.android.com/jetpack/guide?hl=pt-br) - MVVM separates your view (i.e. Activitys and Fragments) from your business logic.
 
 ---
 ## 📌 Contato
