@@ -74,6 +74,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     // DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha08"
+    // Lottie
+    implementation 'com.airbnb.android:lottie:3.7.0'
     // JUnit
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
