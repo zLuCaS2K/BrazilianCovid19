@@ -124,6 +124,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp"
+                    android:contentDescription="@string/use_mask"
                     android:src="@drawable/ic_use_mask" />
 
                 <TextView
@@ -146,6 +147,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp"
+                    android:contentDescription="@string/washing_hand"
                     android:src="@drawable/ic_washing_hand" />
 
                 <TextView
@@ -168,6 +170,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="10dp"
+                    android:contentDescription="@string/distance"
                     android:src="@drawable/ic_distance" />
 
                 <TextView
@@ -186,7 +189,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:text="@string/preventions"
+        android:text="@string/symptoms"
         android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="bold" />

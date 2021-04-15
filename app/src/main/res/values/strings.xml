@@ -29,4 +29,5 @@
     <string name="headache">Dor de cabeça</string>
     <string name="loss_taste">Perda de paladar</string>
     <string name="loss_smell">Perda do olfato</string>
+    <string name="symptoms">Sintomas</string>
 </resources>
