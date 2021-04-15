@@ -19,7 +19,7 @@
 ## Conteúdo
 <ul>
   <li><a href="#-getting-started">Começando</a></li>
-  <li><a href="#-show-screenshots">Começando</a></li>
+  <li><a href="#-show-screenshots">Screenshots</a></li>
   <li><a href="#-features">Funcionalidades</a></li>
   <li><a href="#-support">Contato</a></li>
   <li><a href="#-license">Licença</a></li>
@@ -42,8 +42,7 @@ $ git clone https://github.com/zLuCaS2K/BrazilianCovid19.git
 ```
 
 ## 📱 Screenshots
-<img src="https://user-images.githubusercontent.com/52612637/114952113-f704c780-9e2b-11eb-8e24-13a0a01746cf.png" width="316" height="650">
-<img src="https://user-images.githubusercontent.com/52612637/114952190-21568500-9e2c-11eb-9c2c-f4f7a1ad1198.png" width="316" height="650">
+<img src="https://user-images.githubusercontent.com/52612637/114952113-f704c780-9e2b-11eb-8e24-13a0a01746cf.png" width="316" height="650">   <img src="https://user-images.githubusercontent.com/52612637/114952190-21568500-9e2c-11eb-9c2c-f4f7a1ad1198.png" width="316" height="650">
 
 ---
 ## 📋 Funcionalidades
