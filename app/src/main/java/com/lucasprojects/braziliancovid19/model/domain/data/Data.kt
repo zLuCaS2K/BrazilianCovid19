@@ -18,7 +18,7 @@ class Data {
 
     @SerializedName("deaths")
     @Expose
-    var deaths: String? = null
+    var deaths: Int? = null
 
     @SerializedName("death_rate")
     @Expose

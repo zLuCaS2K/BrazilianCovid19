@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.lucasprojects.braziliancovid19.databinding.FragmentHomeBinding
 import com.lucasprojects.braziliancovid19.ui.activities.MainActivityViewModel
-import com.lucasprojects.braziliancovid19.utils.Utils
 
 class HomeFragment : Fragment() {
 
@@ -21,15 +20,29 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         mViewRoot = binding.root
         setupObservers()
+        setupDataDataStore()
         return mViewRoot
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        _binding?.btnRefreshData?.setOnClickListener { mMainActivityViewModel.loadAllData() }
+        super.onViewCreated(view, savedInstanceState)
+    }
+
     private fun setupObservers() {
-        mMainActivityViewModel.mListData.observe(viewLifecycleOwner, { states ->
-            _binding?.textDataConfirmed?.text = states?.sumBy { it.confirmeds!!.toInt() }.toString()
-            _binding?.textDataDeaths?.text = states?.sumBy { it.deaths!!.toInt() }.toString()
-            _binding?.textRefreshDate?.text = "Última Atualização : ${Utils.getCurrentDateHour()}"
+        mMainActivityViewModel.mCounterConfirmed.observe(viewLifecycleOwner, {
+            _binding?.textDataConfirmed?.text = it
         })
+        mMainActivityViewModel.mCounterDeath.observe(viewLifecycleOwner, {
+            _binding?.textDataDeaths?.text = it
+        })
+        mMainActivityViewModel.mCounterDate.observe(viewLifecycleOwner, {
+            _binding?.textRefreshDate?.text = it
+        })
+    }
+
+    private fun setupDataDataStore() {
+        mMainActivityViewModel.loadDataStore()
     }
 
     override fun onDestroyView() {
