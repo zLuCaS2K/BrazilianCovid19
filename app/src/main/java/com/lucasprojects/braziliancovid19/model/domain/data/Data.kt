@@ -4,7 +4,6 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class Data {
-
     @SerializedName("state")
     @Expose
     var uf: String? = null
@@ -15,7 +14,7 @@ class Data {
 
     @SerializedName("confirmed")
     @Expose
-    var confirmeds: String? = null
+    var confirmeds: Int? = null
 
     @SerializedName("deaths")
     @Expose

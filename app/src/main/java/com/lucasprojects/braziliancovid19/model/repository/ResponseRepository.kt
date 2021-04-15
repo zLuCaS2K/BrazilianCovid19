@@ -1,5 +1,6 @@
 package com.lucasprojects.braziliancovid19.model.repository
 
+import android.app.Application
 import com.lucasprojects.braziliancovid19.model.domain.response.Response
 import com.lucasprojects.braziliancovid19.model.domain.response.ResponseDataSource
 import com.lucasprojects.braziliancovid19.model.services.APIClient
@@ -10,10 +11,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import kotlin.coroutines.CoroutineContext
 
-class ResponseRepository : CoroutineScope, ResponseDataSource {
+class ResponseRepository(application: Application) : CoroutineScope, ResponseDataSource {
 
-    override val coroutineContext: CoroutineContext get() = Dispatchers.IO
     private var _callResponse: Call<Response>? = null
+    override val coroutineContext: CoroutineContext get() = Dispatchers.IO
 
     override fun retrieveResponse(callback: OperationCallback<Response>) {
         _callResponse = APIClient.build().getAllData()

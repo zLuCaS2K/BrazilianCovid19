@@ -38,7 +38,7 @@ object APIClient {
         @GET(Constants.APICOVID.GET_ALL)
         fun getAllData(): Call<Response>
 
-        @Headers("Authorization: ${Constants.APICOVID.API_KEY}")
+        @Headers("Authorization: Token ${Constants.APICOVID.API_KEY}")
         @GET(Constants.APICOVID.GET_CITY)
         fun getAllCity(@Query("page_size") size: Int): Call<Response>
     }

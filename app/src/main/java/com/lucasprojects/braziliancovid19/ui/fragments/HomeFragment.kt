@@ -1,15 +1,39 @@
 package com.lucasprojects.braziliancovid19.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.lucasprojects.braziliancovid19.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import com.lucasprojects.braziliancovid19.databinding.FragmentHomeBinding
+import com.lucasprojects.braziliancovid19.ui.activities.MainActivityViewModel
+import com.lucasprojects.braziliancovid19.utils.Utils
 
 class HomeFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var mViewRoot: View
+    private val mMainActivityViewModel: MainActivityViewModel by activityViewModels()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        mViewRoot = binding.root
+        setupObservers()
+        return mViewRoot
+    }
+
+    private fun setupObservers() {
+        mMainActivityViewModel.mListData.observe(viewLifecycleOwner, { states ->
+            _binding?.textDataConfirmed?.text = states?.sumBy { it.confirmeds!!.toInt() }.toString()
+            _binding?.textDataDeaths?.text = states?.sumBy { it.deaths!!.toInt() }.toString()
+            _binding?.textRefreshDate?.text = "Última Atualização : ${Utils.getCurrentDateHour()}"
+        })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
