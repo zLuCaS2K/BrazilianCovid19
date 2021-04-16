@@ -21,7 +21,7 @@ class DataAdapter(
         fun bindData(data: Data) {
             Picasso.get().load("https://devarthurribeiro.github.io/covid19-brazil-api/static/flags/${data.uf}.png").into(itemBinding.imageFlagState)
             itemBinding.textNameState.text = Utils.setNameState(data.uf)
-            itemBinding.textNameState.text = Utils.formatDate(data.date)
+            itemBinding.textLastUpdate.text = Utils.formatDate(data.date)
         }
     }
 

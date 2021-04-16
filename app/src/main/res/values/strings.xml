@@ -30,4 +30,6 @@
     <string name="loss_taste">Perda de paladar</string>
     <string name="loss_smell">Perda do olfato</string>
     <string name="symptoms">Sintomas</string>
+    <string name="population">População</string>
+    <string name="death_percent">Óbitos %</string>
 </resources>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerBottomSheetDetailsStates"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/model_bottom_sheet_details_states"
+    android:orientation="vertical"
+    tools:viewBindingIgnore="true">
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="10dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/model_view_gray_bottom_sheet" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewDetailsBottomSheet"
+            android:backgroundTint="@color/orange"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewTitleDetailsBottomSheet"
+                    android:text="@string/confirmeds" />
+
+                <TextView
+                    android:id="@+id/textConfirmedBottomSheet"
+                    style="@style/TextViewNumberDetailsBottomSheet"
+                    tools:text="2.000.000" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewDetailsBottomSheet"
+            android:backgroundTint="@color/red"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewTitleDetailsBottomSheet"
+                    android:text="@string/deaths" />
+
+                <TextView
+                    android:id="@+id/textDeathsBottomSheet"
+                    style="@style/TextViewNumberDetailsBottomSheet"
+                    tools:text="2.000.000" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewDetailsBottomSheet"
+            android:backgroundTint="@color/blue"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewTitleDetailsBottomSheet"
+                    android:text="@string/population" />
+
+                <TextView
+                    android:id="@+id/textPopulationBottomSheet"
+                    style="@style/TextViewNumberDetailsBottomSheet"
+                    tools:text="2.000.000" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewDetailsBottomSheet"
+            android:backgroundTint="@color/purple"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewTitleDetailsBottomSheet"
+                    android:text="@string/death_percent" />
+
+                <TextView
+                    android:id="@+id/textDeathPercentBottomSheet"
+                    style="@style/TextViewNumberDetailsBottomSheet"
+                    tools:text="80%" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</LinearLayout>
