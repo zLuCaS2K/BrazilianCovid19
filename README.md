@@ -43,7 +43,11 @@ $ git clone https://github.com/zLuCaS2K/BrazilianCovid19.git
 ```
 
 ## 📱 Screenshots
-<img src="https://user-images.githubusercontent.com/52612637/115037985-74b8e980-9ea5-11eb-9ee7-2c8de0911817.png" width="316" height="650">   <img src="https://user-images.githubusercontent.com/52612637/115038096-95813f00-9ea5-11eb-970c-7b23535c48df.png" width="316" height="650">   <img src="https://user-images.githubusercontent.com/52612637/115038198-acc02c80-9ea5-11eb-93b3-f4d02fc852b3.png" width="316" height="650">
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/52612637/115037985-74b8e980-9ea5-11eb-9ee7-2c8de0911817.png" width="200" height="400" />
+  <img src="https://user-images.githubusercontent.com/52612637/115038096-95813f00-9ea5-11eb-970c-7b23535c48df.png" width="200" height="400" />
+  <img src="https://user-images.githubusercontent.com/52612637/115038198-acc02c80-9ea5-11eb-93b3-f4d02fc852b3.png" width="200" height="400" />
+</p>
 
 ---
 ## 📋 Funcionalidades
