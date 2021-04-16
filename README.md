@@ -35,6 +35,7 @@
 $ git clone https://github.com/zLuCaS2K/BrazilianCovid19.git
 ```
 
+### Configurando
 - Obtenha sua KEY da API [Brasil.io](https://brasil.io/auth/entrar/) e insira no [API_KEY](https://github.com/zLuCaS2K/BrazilianCovid19/blob/master/app/src/main/java/com/lucasprojects/braziliancovid19/utils/Constants.kt) no diretório:
 
 ```
@@ -57,6 +58,8 @@ $ git clone https://github.com/zLuCaS2K/BrazilianCovid19.git
 ### Construído com
 - Linguagem
   - [Kotlin](https://kotlinlang.org/) - A modern programming language that makes developers happier.
+- API
+  - [Brasil.io](https://github.com/turicas/covid19-br) - Dados diários mais recentes do coronavírus por município brasileiro.
 - Arquitetura
   - [MVVM](https://developer.android.com/jetpack/guide?hl=pt-br) - MVVM separates your view (i.e. Activitys and Fragments) from your business logic.
 - Bibliotecas
