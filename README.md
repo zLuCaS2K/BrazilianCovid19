@@ -2,7 +2,6 @@
 <h2 align="center">
   Brazilian Covid-19
 </h2>
-<p align="center">O projeto está em estágios iniciais de desenvolvimento</p>
 <p align="center">Um aplicativo de código aberto para mostrar informações sobre a situação da pandemia Covid-19 no Brasil.</p>
 
 <p align="center">
@@ -57,7 +56,7 @@ $ git clone https://github.com/zLuCaS2K/BrazilianCovid19.git
 - [x] Barra de navegação inferior.
 - [x] Visão geral da situação de casos confirmados e óbitos no Brasil.
 - [x] Listagem da situação de cada estado do país.
-- [ ] Mapa de calor.
+- [x] Mapa de calor.
 - [ ] Banco de dados usando room para uso offiline.
 
 ### Construído com
