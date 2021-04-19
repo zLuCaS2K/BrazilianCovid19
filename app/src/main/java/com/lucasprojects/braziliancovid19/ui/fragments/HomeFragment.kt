@@ -95,7 +95,7 @@ class HomeFragment : Fragment() {
     )
 
     override fun onDestroyView() {
-        super.onDestroyView()
         _binding = null
+        super.onDestroyView()
     }
 }

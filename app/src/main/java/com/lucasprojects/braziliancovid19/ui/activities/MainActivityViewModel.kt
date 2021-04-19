@@ -22,6 +22,7 @@ class MainActivityViewModel(application: Application) : ViewModel() {
     private val _dataStoreApp = DataStoreApp(application)
 
     private val _listResponse = MutableLiveData<List<Data>>()
+    private val _listResponseCity = MutableLiveData<List<Data>>()
     private val _isViewLoading = MutableLiveData<Boolean>()
     private val _anErrorOccurred = MutableLiveData<Boolean>()
     private val _counterConfirmed = MutableLiveData<String>()
@@ -29,6 +30,7 @@ class MainActivityViewModel(application: Application) : ViewModel() {
     private val _counterDate = MutableLiveData<String>()
 
     val mListData: LiveData<List<Data>> get() = _listResponse
+    val mListDataCity: LiveData<List<Data>> get() = _listResponseCity
     val mIsViewLoading: LiveData<Boolean> get() = _isViewLoading
     val mAnErrorOccurred: LiveData<Boolean> get() = _anErrorOccurred
     val mCounterConfirmed: LiveData<String> get() = _counterConfirmed
@@ -63,10 +65,10 @@ class MainActivityViewModel(application: Application) : ViewModel() {
 
     fun loadAllDataCity() {
         _isViewLoading.postValue(true)
-        _responseRepository.retrieveResponse(object : OperationCallback<Response> {
+        _responseRepository.retrieveResponseCity(object : OperationCallback<Response> {
             override fun onSuccess(data: Response?) {
                 _isViewLoading.postValue(false)
-                data?.let { _listResponse.value = it.data }
+                data?.let { _listResponseCity.value = it.data }
             }
 
             override fun onError(error: String) {

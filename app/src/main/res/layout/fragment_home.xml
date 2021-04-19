@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:backgroundTint="@color/blue">
+        android:backgroundTint="@color/blue"
+        app:cardCornerRadius="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -112,7 +113,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.google.android.material.card.MaterialCardView style="@style/CardViewPreventions">
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewPreventions"
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,7 +138,9 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView style="@style/CardViewPreventions">
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewPreventions"
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -158,7 +163,9 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView style="@style/CardViewPreventions">
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewPreventions"
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
