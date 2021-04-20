@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="blue">#42A5F5</color>
-    <color name="blue_light">#80D6FF</color>
-    <color name="blue_very_light">#E3F2FD</color>
     <color name="black">#292929</color>
     <color name="gray">#CFCFCF</color>
     <color name="white">#FFFFFF</color>

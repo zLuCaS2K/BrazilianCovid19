@@ -62,7 +62,6 @@
                 app:layout_constraintTop_toTopOf="@id/textDataConfirmed" />
 
             <TextView
-                android:id="@+id/textDataDeaths"
                 style="@style/TextViewDataCardView"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +70,6 @@
                 tools:text="2.000.000" />
 
             <ImageView
-                android:id="@+id/btnRefreshData"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
@@ -83,7 +81,6 @@
                 app:tint="@color/white" />
 
             <TextView
-                android:id="@+id/textRefreshDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -202,7 +199,6 @@
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerSymptoms"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" />

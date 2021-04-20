@@ -29,11 +29,9 @@
     <string name="sore_throat">Dor de garganta</string>
     <string name="diarrhoea">Diarréia</string>
     <string name="conjuctivitis">Conjuntivite</string>
-    <string name="headache">Dor de cabeça</string>
     <string name="loss_taste">Perda de paladar</string>
     <string name="loss_smell">Perda do olfato</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="update_app">Atualizar aplicativo</string>
     <string name="share_app">Compartilhar aplicativo</string>
     <string name="licenses">Licenças</string>
