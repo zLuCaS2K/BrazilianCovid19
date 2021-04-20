@@ -18,6 +18,11 @@
     <fragment
         android:id="@+id/navMaps"
         android:name="com.lucasprojects.braziliancovid19.ui.fragments.HeatMapFragment"
-        android:label="HeatMapFragment" />
+        tools:layout="@layout/fragment_heat_map" />
+
+    <fragment
+        android:id="@+id/navAbout"
+        android:name="com.lucasprojects.braziliancovid19.ui.fragments.AboutFragment"
+        tools:layout="@layout/fragment_about" />
 
 </navigation>
