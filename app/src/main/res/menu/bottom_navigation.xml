@@ -21,5 +21,10 @@
         android:title="@string/maps"
         app:exb_color="@color/blue" />
 
+    <item
+        android:id="@+id/navAbout"
+        android:icon="@drawable/ic_about"
+        android:title="@string/about"
+        app:exb_color="@color/blue" />
 
 </menu>

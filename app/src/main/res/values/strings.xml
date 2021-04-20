@@ -1,35 +1,42 @@
 <resources>
     <string name="app_name">Brazilian Covid-19</string>
+    <!-- BottomNavigationBar -->
+    <string name="home">Principal</string>
+    <string name="states">Estados</string>
+    <string name="maps">Mapa</string>
     <!-- Home Fragment -->
     <string name="confirmeds">Confirmados</string>
     <string name="deaths">Óbitos</string>
+    <string name="population">População</string>
+    <string name="death_percent">Óbitos %</string>
     <string name="refresh">Atualizar</string>
+    <string name="last_verify">Última Verificação :</string>
     <!-- Prenvenções -->
     <string name="preventions">Prevenções</string>
     <string name="use_mask">Use sempre mascará</string>
     <string name="washing_hand">Lave bem as suas mãos</string>
     <string name="distance">Mantenha distância</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home">Principal</string>
-    <string name="states">Estados</string>
-    <string name="maps">Mapa</string>
-
-    <string name="last_verify">Última Verificação :</string>
+    <!-- Dialogs -->
     <string name="error">Algo deu errado</string>
     <string name="error_dialog">Ocorreu um erro ao tentar obter os dados, verifique sua conexão com a internet e tente novamente.</string>
     <string name="try_again">Tente Novamente</string>
+    <!-- Sintomas -->
+    <string name="symptoms">Sintomas</string>
     <string name="fever">Febre</string>
     <string name="cough">Tosse seca</string>
     <string name="fatigue">Cansaço</string>
     <string name="pain">Dores e desconfortos</string>
     <string name="sore_throat">Dor de garganta</string>
     <string name="diarrhoea">Diarréia</string>
-    <string name="conjuctivitis">conjuntivite</string>
+    <string name="conjuctivitis">Conjuntivite</string>
     <string name="headache">Dor de cabeça</string>
     <string name="loss_taste">Perda de paladar</string>
     <string name="loss_smell">Perda do olfato</string>
-    <string name="symptoms">Sintomas</string>
-    <string name="population">População</string>
-    <string name="death_percent">Óbitos %</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="update_app">Atualizar aplicativo</string>
+    <string name="share_app">Compartilhar aplicativo</string>
+    <string name="licenses">Licenças</string>
+    <string name="about">Sobre</string>
+    <string name="repository">Repositório</string>
 </resources>
