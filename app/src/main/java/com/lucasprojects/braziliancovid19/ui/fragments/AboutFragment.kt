@@ -15,7 +15,11 @@ class AboutFragment : Fragment() {
     private var _binding: FragmentAboutBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
         eventsClick()
         return binding.root
@@ -25,7 +29,7 @@ class AboutFragment : Fragment() {
         binding.btnGoRepositoryGitHun.setOnClickListener { openUrlFromIntent(Constants.ABOUT.REPOSITORY_URL) }
         binding.cardUpdateApp.setOnClickListener { openUrlFromIntent(Constants.ABOUT.REPOSITORY_UPDATE_URL) }
         binding.cardShareApp.setOnClickListener { shareApp() }
-        binding.cardLicenses.setOnClickListener {  }
+        binding.cardLicenses.setOnClickListener { }
     }
 
     private fun openUrlFromIntent(url: String) {
@@ -37,7 +41,8 @@ class AboutFragment : Fragment() {
     private fun shareApp() {
         val intent = Intent().apply {
             action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, "https://github.com/zLuCaS2K/BrazilianCovid19/releases \nAplicativo de monitoramento do Covid-19 no Brasil.")
+            putExtra(Intent.EXTRA_TEXT,
+                "https://github.com/zLuCaS2K/BrazilianCovid19/releases \nAplicativo de monitoramento do Covid-19 no Brasil.")
             type = "text/plain"
         }
         startActivity(Intent.createChooser(intent, "Compartilhar Aplicativo"))

@@ -86,15 +86,15 @@ class MainActivityViewModel(application: Application) : ViewModel() {
         _counterConfirmed.value = valueConfirmed
         _counterDeath.value = valueDeath
         _counterDate.value = valueDate
-        _dataStoreApp.saveData(Constants.DATA_STORE_KEYS.KEY_CONFIRMED, valueConfirmed)
-        _dataStoreApp.saveData(Constants.DATA_STORE_KEYS.KEY_DEATH, valueDeath)
-        _dataStoreApp.saveData(Constants.DATA_STORE_KEYS.KEY_DATE, valueDate)
+        _dataStoreApp.saveData(Constants.DATASTOREKEYS.KEY_CONFIRMED, valueConfirmed)
+        _dataStoreApp.saveData(Constants.DATASTOREKEYS.KEY_DEATH, valueDeath)
+        _dataStoreApp.saveData(Constants.DATASTOREKEYS.KEY_DATE, valueDate)
     }
 
     private suspend fun loadDataStoreSuspend() {
-        _counterConfirmed.value = _dataStoreApp.readData(Constants.DATA_STORE_KEYS.KEY_CONFIRMED).first()
-        _counterDeath.value = _dataStoreApp.readData(Constants.DATA_STORE_KEYS.KEY_DEATH).first()
-        _dataStoreApp.readData(Constants.DATA_STORE_KEYS.KEY_DATE).first().apply {
+        _counterConfirmed.value = _dataStoreApp.readData(Constants.DATASTOREKEYS.KEY_CONFIRMED).first()
+        _counterDeath.value = _dataStoreApp.readData(Constants.DATASTOREKEYS.KEY_DEATH).first()
+        _dataStoreApp.readData(Constants.DATASTOREKEYS.KEY_DATE).first().apply {
             if (this == "0") {
                 _counterDate.value = ""
             } else {

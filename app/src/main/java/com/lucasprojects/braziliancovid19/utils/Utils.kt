@@ -4,8 +4,6 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
-import android.view.View
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
 import com.lucasprojects.braziliancovid19.R
 import java.text.DecimalFormat
@@ -26,7 +24,9 @@ object Utils {
         return simpleDateFormat.format(dateString)
     }
 
-    fun formatNumberData(number: Int) = DecimalFormat("#,###").format(number)
+    fun formatNumberData(number: Int) : String {
+        return DecimalFormat("#,###").format(number)
+    }
 
     fun showAlertDialog(context: Context, requestDialog: Int): Dialog {
         val builder = AlertDialog.Builder(context)
@@ -43,11 +43,6 @@ object Utils {
 
     fun formatDeathPercent(deathPercent: Double?): String =
         DecimalFormat("#,##0.00").format(deathPercent)
-
-    fun setAnimation(context: Context, view: View, rawAnimation: Int) {
-        val animation = AnimationUtils.loadAnimation(context, rawAnimation)
-        view.startAnimation(animation)
-    }
 
     fun setNameState(singleState: String?): String? {
         var nameState: String? = null

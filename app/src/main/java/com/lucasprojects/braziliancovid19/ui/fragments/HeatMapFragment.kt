@@ -47,7 +47,11 @@ class HeatMapFragment : Fragment() {
         mMainActivityViewModel.loadAllDataCity()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
         _binding = FragmentHeatMapBinding.inflate(inflater, container, false)
         mViewRoot = binding.root
         initializeAlertDialogs()
