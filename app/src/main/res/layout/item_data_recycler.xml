@@ -27,6 +27,7 @@
             tools:src="@mipmap/ic_launcher_round" />
 
         <TextView
+            android:id="@+id/textNameState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -39,6 +40,7 @@
             tools:text="CEARÀ" />
 
         <TextView
+            android:id="@+id/textLastUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
