@@ -61,8 +61,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
-    // Kotlin Coroutines
-    implementation "androidx.room:room-ktx:2.2.6"
     // Gson
     implementation "com.google.code.gson:gson:2.8.6"
     // Retrofit2
