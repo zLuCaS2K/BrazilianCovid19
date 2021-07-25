@@ -1,6 +1,5 @@
 package com.lucasprojects.braziliancovid19.ui.fragments
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,43 +7,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.button.MaterialButton
 import com.lucasprojects.braziliancovid19.R
 import com.lucasprojects.braziliancovid19.databinding.FragmentHomeBinding
 import com.lucasprojects.braziliancovid19.model.domain.symptoms.Symptoms
 import com.lucasprojects.braziliancovid19.model.domain.symptoms.SymptomsAdapter
 import com.lucasprojects.braziliancovid19.ui.viewmodel.MainViewModel
-import com.lucasprojects.braziliancovid19.utils.Utils
 
 class HomeFragment : Fragment() {
 
-    private lateinit var mViewRoot: View
-    private lateinit var mDialogLoading: Dialog
-    private lateinit var mDialogAnError: Dialog
     private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private val mBinding get() = _binding!!
     private val mMainViewModel: MainViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        mViewRoot = binding.root
-        setupObservers()
-        loadDataInDataStore()
-        initializeAlertDialogs()
+        setObservesUI()
         setupRecyclerViewSymptoms()
-        return mViewRoot
+        return mBinding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        _binding?.btnRefreshData?.setOnClickListener { mMainViewModel.loadAllData(mViewRoot.context) }
-        super.onViewCreated(view, savedInstanceState)
-    }
-
-    private fun setupObservers() {
+    private fun setObservesUI() {
+        /**
         mMainViewModel.mCounterConfirmed.observe(viewLifecycleOwner, {
             _binding?.textDataConfirmed?.text = it
         })
@@ -67,21 +50,12 @@ class HomeFragment : Fragment() {
             } else {
                 mDialogAnError.dismiss()
             }
-        })
-    }
-
-    private fun loadDataInDataStore() {
-        mMainViewModel.loadDataStore()
-    }
-
-    private fun initializeAlertDialogs() {
-        mDialogLoading = Utils.showAlertDialog(mViewRoot.context, 1)
-        mDialogAnError = Utils.showAlertDialog(mViewRoot.context, 2)
+        })*/
     }
 
     private fun setupRecyclerViewSymptoms() {
-        binding.recyclerSymptoms.apply {
-            layoutManager = LinearLayoutManager(mViewRoot.context,LinearLayoutManager.HORIZONTAL ,false)
+        mBinding.recyclerSymptoms.apply {
+            layoutManager = LinearLayoutManager(mBinding.root.context,LinearLayoutManager.HORIZONTAL ,false)
             adapter = SymptomsAdapter(getListSysmptoms())
         }
     }

@@ -1,105 +1,66 @@
 package com.lucasprojects.braziliancovid19.ui.viewmodel
 
-import android.app.Application
-import android.content.Context
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.lucasprojects.braziliancovid19.data.network.RetrofitRepository
+import com.lucasprojects.braziliancovid19.data.network.RetrofitServiceClient
 import com.lucasprojects.braziliancovid19.model.domain.data.Data
-import com.lucasprojects.braziliancovid19.model.domain.response.Response
-import com.lucasprojects.braziliancovid19.model.repository.ResponseRepository
-import com.lucasprojects.braziliancovid19.model.services.OperationCallback
-import com.lucasprojects.braziliancovid19.utils.Constants
-import com.lucasprojects.braziliancovid19.utils.DataStoreApp
-import com.lucasprojects.braziliancovid19.utils.Utils
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
+import com.lucasprojects.braziliancovid19.data.network.models.ResponseData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class MainViewModel(application: Application) : ViewModel() {
+class MainViewModel : ViewModel() {
 
-    private val _responseRepository = ResponseRepository(application)
-    private val _dataStoreApp = DataStoreApp(application)
-
-    private val _listResponse = MutableLiveData<List<Data>>()
-    private val _listResponseCity = MutableLiveData<List<Data>>()
-    private val _isViewLoading = MutableLiveData<Boolean>()
-    private val _anErrorOccurred = MutableLiveData<Boolean>()
-    private val _counterConfirmed = MutableLiveData<String>()
-    private val _counterDeath = MutableLiveData<String>()
-    private val _counterDate = MutableLiveData<String>()
-
-    val mListData: LiveData<List<Data>> get() = _listResponse
-    val mListDataCity: LiveData<List<Data>> get() = _listResponseCity
-    val mIsViewLoading: LiveData<Boolean> get() = _isViewLoading
-    val mAnErrorOccurred: LiveData<Boolean> get() = _anErrorOccurred
-    val mCounterConfirmed: LiveData<String> get() = _counterConfirmed
-    val mCounterDeath: LiveData<String> get() = _counterDeath
-    val mCounterDate: LiveData<String> get() = _counterDate
+    var mListData = MutableLiveData<List<Data>>()
+    var mListDataCity = MutableLiveData<List<Data>>()
+    var isLoading = MutableLiveData<Boolean>()
+    var errorOccured = MutableLiveData<Boolean>()
+    private val _retrofitRepository = RetrofitRepository.create(RetrofitServiceClient.getInstance())
 
     init {
-        loadAllData(application.applicationContext)
+        getAllData()
     }
 
-    fun loadAllData(context: Context) {
-        _isViewLoading.postValue(true)
-        _responseRepository.retrieveResponse(object : OperationCallback<Response> {
-            override fun onSuccess(data: Response?) {
-                _isViewLoading.postValue(false)
-                data?.let { _listResponse.value = it.data }
-                viewModelScope.launch {
-                    saveDataStoreSuspend(
-                        Utils.formatNumberData(_listResponse.value?.sumBy { it.confirmeds!! }!!.toInt()),
-                        Utils.formatNumberData(_listResponse.value?.sumBy { it.deaths!! }!!.toInt()),
-                        Utils.getCurrentDateHour(context)
-                    )
+    fun getAllData() {
+        isLoading.postValue(true)
+        _retrofitRepository.getAllData().enqueue(object : Callback<ResponseData> {
+            override fun onResponse(call: Call<ResponseData>, responseData: Response<ResponseData>, ) {
+                if (responseData.isSuccessful) {
+                    responseData.body()?.let {
+                        isLoading.postValue(false)
+                        errorOccured.postValue(false)
+                        mListData.postValue(it.data)
+                    }
                 }
             }
 
-            override fun onError(error: String) {
-                _isViewLoading.postValue(false)
-                _anErrorOccurred.postValue(true)
+            override fun onFailure(call: Call<ResponseData>, t: Throwable) {
+                isLoading.postValue(false)
+                errorOccured.postValue(true)
+                t.printStackTrace()
             }
         })
     }
 
-    fun loadAllDataCity() {
-        _isViewLoading.postValue(true)
-        _responseRepository.retrieveResponseCity(object : OperationCallback<Response> {
-            override fun onSuccess(data: Response?) {
-                _isViewLoading.postValue(false)
-                data?.let { _listResponseCity.value = it.data }
+    fun getAllCity() {
+        isLoading.postValue(true)
+        _retrofitRepository.getAllCity().enqueue(object : Callback<ResponseData> {
+            override fun onResponse(call: Call<ResponseData>, responseData: Response<ResponseData>, ) {
+                if (responseData.isSuccessful) {
+                    responseData.body()?.let {
+                        isLoading.postValue(false)
+                        errorOccured.postValue(false)
+                        mListDataCity.postValue(it.data)
+                    }
+                }
             }
 
-            override fun onError(error: String) {
-                _isViewLoading.postValue(false)
-                _anErrorOccurred.postValue(true)
+            override fun onFailure(call: Call<ResponseData>, t: Throwable) {
+                isLoading.postValue(false)
+                errorOccured.postValue(true)
+                t.printStackTrace()
             }
         })
-    }
-
-    fun loadDataStore() {
-        viewModelScope.launch { loadDataStoreSuspend() }
-    }
-
-    private suspend fun saveDataStoreSuspend(valueConfirmed: String, valueDeath: String, valueDate: String) {
-        _counterConfirmed.value = valueConfirmed
-        _counterDeath.value = valueDeath
-        _counterDate.value = valueDate
-        _dataStoreApp.saveData(Constants.DATASTOREKEYS.KEY_CONFIRMED, valueConfirmed)
-        _dataStoreApp.saveData(Constants.DATASTOREKEYS.KEY_DEATH, valueDeath)
-        _dataStoreApp.saveData(Constants.DATASTOREKEYS.KEY_DATE, valueDate)
-    }
-
-    private suspend fun loadDataStoreSuspend() {
-        _counterConfirmed.value = _dataStoreApp.readData(Constants.DATASTOREKEYS.KEY_CONFIRMED).first()
-        _counterDeath.value = _dataStoreApp.readData(Constants.DATASTOREKEYS.KEY_DEATH).first()
-        _dataStoreApp.readData(Constants.DATASTOREKEYS.KEY_DATE).first().apply {
-            if (this == "0") {
-                _counterDate.value = ""
-            } else {
-                _counterDate.value = this
-            }
-        }
     }
 }

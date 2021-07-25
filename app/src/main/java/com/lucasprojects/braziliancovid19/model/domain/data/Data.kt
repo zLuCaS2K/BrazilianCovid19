@@ -9,6 +9,9 @@ data class Data(
     @SerializedName("city")
     val name: String,
 
+    @SerializedName("city_ibge_code")
+    val ibgeCode: String,
+
     @SerializedName("confirmed")
     val confirmeds: Int,
 
