@@ -7,12 +7,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.lucasprojects.braziliancovid19.R
 import com.lucasprojects.braziliancovid19.databinding.ActivityMainBinding
+import com.lucasprojects.braziliancovid19.ui.viewmodel.MainViewModel
 import com.lucasprojects.braziliancovid19.utils.Injection
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
-    private lateinit var mMainActivityViewModel: MainActivityViewModel
+    private lateinit var mMainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeMainActivityViewModel() {
-        mMainActivityViewModel = ViewModelProvider(this, Injection.providerViewModelFactory(application)).get(MainActivityViewModel::class.java)
+        mMainViewModel = ViewModelProvider(this, Injection.providerViewModelFactory(application)).get(
+            MainViewModel::class.java)
     }
 
     private fun setupBottomNavigation() {

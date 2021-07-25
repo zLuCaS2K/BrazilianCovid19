@@ -1,4 +1,4 @@
-package com.lucasprojects.braziliancovid19.ui.activities
+package com.lucasprojects.braziliancovid19.ui.viewmodel
 
 import android.app.Application
 import android.content.Context
@@ -16,7 +16,7 @@ import com.lucasprojects.braziliancovid19.utils.Utils
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
-class MainActivityViewModel(application: Application) : ViewModel() {
+class MainViewModel(application: Application) : ViewModel() {
 
     private val _responseRepository = ResponseRepository(application)
     private val _dataStoreApp = DataStoreApp(application)

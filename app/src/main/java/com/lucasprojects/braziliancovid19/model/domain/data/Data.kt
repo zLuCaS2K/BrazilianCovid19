@@ -1,34 +1,26 @@
 package com.lucasprojects.braziliancovid19.model.domain.data
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Data {
+data class Data(
     @SerializedName("state")
-    @Expose
-    var uf: String? = null
+    val uf: String,
 
     @SerializedName("city")
-    @Expose
-    var name: String? = null
+    val name: String,
 
     @SerializedName("confirmed")
-    @Expose
-    var confirmeds: Int? = null
+    val confirmeds: Int,
 
     @SerializedName("deaths")
-    @Expose
-    var deaths: Int? = null
+    val deaths: Int,
 
     @SerializedName("death_rate")
-    @Expose
-    var deathRate: String? = null
+    val deathRate: String,
 
     @SerializedName("estimated_population_2019")
-    @Expose
-    var population: Int? = null
+    val population: Int,
 
     @SerializedName("date")
-    @Expose
-    var date: String? = null
-}
+    val date: String,
+)

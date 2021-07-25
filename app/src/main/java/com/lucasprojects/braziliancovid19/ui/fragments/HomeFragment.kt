@@ -13,7 +13,7 @@ import com.lucasprojects.braziliancovid19.R
 import com.lucasprojects.braziliancovid19.databinding.FragmentHomeBinding
 import com.lucasprojects.braziliancovid19.model.domain.symptoms.Symptoms
 import com.lucasprojects.braziliancovid19.model.domain.symptoms.SymptomsAdapter
-import com.lucasprojects.braziliancovid19.ui.activities.MainActivityViewModel
+import com.lucasprojects.braziliancovid19.ui.viewmodel.MainViewModel
 import com.lucasprojects.braziliancovid19.utils.Utils
 
 class HomeFragment : Fragment() {
@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
     private lateinit var mDialogAnError: Dialog
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val mMainActivityViewModel: MainActivityViewModel by activityViewModels()
+    private val mMainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,29 +40,29 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        _binding?.btnRefreshData?.setOnClickListener { mMainActivityViewModel.loadAllData(mViewRoot.context) }
+        _binding?.btnRefreshData?.setOnClickListener { mMainViewModel.loadAllData(mViewRoot.context) }
         super.onViewCreated(view, savedInstanceState)
     }
 
     private fun setupObservers() {
-        mMainActivityViewModel.mCounterConfirmed.observe(viewLifecycleOwner, {
+        mMainViewModel.mCounterConfirmed.observe(viewLifecycleOwner, {
             _binding?.textDataConfirmed?.text = it
         })
-        mMainActivityViewModel.mCounterDeath.observe(viewLifecycleOwner, {
+        mMainViewModel.mCounterDeath.observe(viewLifecycleOwner, {
             _binding?.textDataDeaths?.text = it
         })
-        mMainActivityViewModel.mCounterDate.observe(viewLifecycleOwner, {
+        mMainViewModel.mCounterDate.observe(viewLifecycleOwner, {
             _binding?.textRefreshDate?.text = it
         })
-        mMainActivityViewModel.mIsViewLoading.observe(viewLifecycleOwner, {
+        mMainViewModel.mIsViewLoading.observe(viewLifecycleOwner, {
             if (it) mDialogLoading.show() else mDialogLoading.dismiss()
         })
-        mMainActivityViewModel.mAnErrorOccurred.observe(viewLifecycleOwner, {
+        mMainViewModel.mAnErrorOccurred.observe(viewLifecycleOwner, {
             if (it) {
                 mDialogAnError.show()
                 mDialogAnError.findViewById<MaterialButton>(R.id.btnTryAgain).setOnClickListener {
                     mDialogAnError.dismiss()
-                    mMainActivityViewModel.loadAllData(mViewRoot.context)
+                    mMainViewModel.loadAllData(mViewRoot.context)
                 }
             } else {
                 mDialogAnError.dismiss()
@@ -71,7 +71,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadDataInDataStore() {
-        mMainActivityViewModel.loadDataStore()
+        mMainViewModel.loadDataStore()
     }
 
     private fun initializeAlertDialogs() {

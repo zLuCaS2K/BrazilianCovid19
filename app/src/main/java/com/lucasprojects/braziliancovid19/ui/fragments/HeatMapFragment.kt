@@ -20,7 +20,7 @@ import com.google.maps.android.heatmaps.WeightedLatLng
 import com.lucasprojects.braziliancovid19.R
 import com.lucasprojects.braziliancovid19.databinding.FragmentHeatMapBinding
 import com.lucasprojects.braziliancovid19.model.domain.data.Data
-import com.lucasprojects.braziliancovid19.ui.activities.MainActivityViewModel
+import com.lucasprojects.braziliancovid19.ui.viewmodel.MainViewModel
 import com.lucasprojects.braziliancovid19.utils.Utils
 import org.json.JSONArray
 import org.json.JSONException
@@ -36,7 +36,7 @@ class HeatMapFragment : Fragment() {
     private lateinit var mOverlay: TileOverlay
     private lateinit var mDialogLoading: Dialog
     private lateinit var mDialogAnError: Dialog
-    private val mMainActivityViewModel: MainActivityViewModel by activityViewModels()
+    private val mMainViewModel: MainViewModel by activityViewModels()
 
     private val callback = OnMapReadyCallback { googleMap ->
         mMap = googleMap
@@ -44,7 +44,7 @@ class HeatMapFragment : Fragment() {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(-14.235004, -51.925282)))
         mMap.setMinZoomPreference(3.9f)
         mMap.setMaxZoomPreference(3.9f)
-        mMainActivityViewModel.loadAllDataCity()
+        mMainViewModel.loadAllDataCity()
     }
 
     override fun onCreateView(
@@ -65,23 +65,23 @@ class HeatMapFragment : Fragment() {
         setupObservers()
         binding.fabRefreshDataMap.setOnClickListener {
             removeHeatMap()
-            mMainActivityViewModel.loadAllDataCity()
+            mMainViewModel.loadAllDataCity()
         }
     }
 
     private fun setupObservers() {
-        mMainActivityViewModel.mListDataCity.observe(viewLifecycleOwner, {
+        mMainViewModel.mListDataCity.observe(viewLifecycleOwner, {
             addHeatMap(it)
         })
-        mMainActivityViewModel.mIsViewLoading.observe(viewLifecycleOwner, {
+        mMainViewModel.mIsViewLoading.observe(viewLifecycleOwner, {
             if (it) mDialogLoading.show() else mDialogLoading.dismiss()
         })
-        mMainActivityViewModel.mAnErrorOccurred.observe(viewLifecycleOwner, {
+        mMainViewModel.mAnErrorOccurred.observe(viewLifecycleOwner, {
             if (it) {
                 mDialogAnError.show()
                 mDialogAnError.findViewById<MaterialButton>(R.id.btnTryAgain).setOnClickListener {
                     mDialogAnError.dismiss()
-                    mMainActivityViewModel.loadAllData(mViewRoot.context)
+                    mMainViewModel.loadAllData(mViewRoot.context)
                 }
             } else {
                 mDialogAnError.dismiss()

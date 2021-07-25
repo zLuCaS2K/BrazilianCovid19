@@ -13,7 +13,7 @@ import com.lucasprojects.braziliancovid19.R
 import com.lucasprojects.braziliancovid19.databinding.FragmentStatesListBinding
 import com.lucasprojects.braziliancovid19.model.domain.data.Data
 import com.lucasprojects.braziliancovid19.model.domain.data.DataAdapter
-import com.lucasprojects.braziliancovid19.ui.activities.MainActivityViewModel
+import com.lucasprojects.braziliancovid19.ui.viewmodel.MainViewModel
 import com.lucasprojects.braziliancovid19.utils.Utils
 
 class StatesListFragment : Fragment() {
@@ -21,7 +21,7 @@ class StatesListFragment : Fragment() {
     private lateinit var mViewRoot: View
     private var _binding: FragmentStatesListBinding? = null
     private val binding get() = _binding!!
-    private val mMainActivityViewModel: MainActivityViewModel by activityViewModels()
+    private val mMainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +35,7 @@ class StatesListFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        mMainActivityViewModel.mListData.observe(viewLifecycleOwner, {
+        mMainViewModel.mListData.observe(viewLifecycleOwner, {
             setupRecyclerStates(it)
         })
     }
