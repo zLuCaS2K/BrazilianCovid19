@@ -47,8 +47,6 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$android_constraintlayoutt_version"
     // Material Design
     implementation "com.google.android.material:material:$material_version"
-    // Expandable Bottom Bar
-    implementation 'com.github.st235:expandablebottombar:1.1.8'
     // Navigation Component
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_component_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_component_version"
