@@ -23,15 +23,15 @@
     <!-- Sintomas -->
     <string name="symptoms">Sintomas</string>
     <string name="fever">Febre</string>
-    <string name="cough">Tosse seca</string>
+    <string name="cough">Tosse Seca</string>
     <string name="fatigue">Cansaço</string>
-    <string name="pain">Dores e desconfortos</string>
-    <string name="sore_throat">Dor de garganta</string>
+    <string name="pain">Dores e Desconfortos</string>
+    <string name="sore_throat">Dor de Garganta</string>
     <string name="diarrhoea">Diarréia</string>
     <string name="conjuctivitis">Conjuntivite</string>
-    <string name="loss_taste">Perda de paladar</string>
-    <string name="loss_smell">Perda do olfato</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="loss_taste">Perda de Paladar</string>
+    <string name="loss_smell">Perda do Olfato</string>
+
     <string name="update_app">Atualizar aplicativo</string>
     <string name="share_app">Compartilhar aplicativo</string>
     <string name="licenses">Licenças</string>

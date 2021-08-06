@@ -74,12 +74,12 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottie_version"
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
-    /// Room
+    // Room
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
-    /// Coroutines
+    // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
     // JUnit & Espresso

@@ -27,35 +27,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun setObservesUI() {
-        /**
-        mMainViewModel.mCounterConfirmed.observe(viewLifecycleOwner, {
-            _binding?.textDataConfirmed?.text = it
+        mMainViewModel.mListData.observe(viewLifecycleOwner, {
+            mBinding.textDataConfirmed.text = it.sumOf { n -> n.confirmeds }.toString()
+            mBinding.textDataDeaths.text = it.sumOf { n -> n.deaths }.toString()
         })
-        mMainViewModel.mCounterDeath.observe(viewLifecycleOwner, {
-            _binding?.textDataDeaths?.text = it
-        })
-        mMainViewModel.mCounterDate.observe(viewLifecycleOwner, {
-            _binding?.textRefreshDate?.text = it
-        })
-        mMainViewModel.mIsViewLoading.observe(viewLifecycleOwner, {
-            if (it) mDialogLoading.show() else mDialogLoading.dismiss()
-        })
-        mMainViewModel.mAnErrorOccurred.observe(viewLifecycleOwner, {
-            if (it) {
-                mDialogAnError.show()
-                mDialogAnError.findViewById<MaterialButton>(R.id.btnTryAgain).setOnClickListener {
-                    mDialogAnError.dismiss()
-                    mMainViewModel.loadAllData(mViewRoot.context)
-                }
-            } else {
-                mDialogAnError.dismiss()
-            }
-        })*/
     }
 
     private fun setupRecyclerViewSymptoms() {
         mBinding.recyclerSymptoms.apply {
-            layoutManager = LinearLayoutManager(mBinding.root.context,LinearLayoutManager.HORIZONTAL ,false)
+            layoutManager = LinearLayoutManager(mBinding.root.context, LinearLayoutManager.HORIZONTAL, false)
             adapter = SymptomsAdapter(getListSysmptoms())
         }
     }

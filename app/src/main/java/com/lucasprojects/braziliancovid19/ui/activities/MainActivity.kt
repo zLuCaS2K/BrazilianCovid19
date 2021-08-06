@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.lucasprojects.braziliancovid19.R
 import com.lucasprojects.braziliancovid19.databinding.ActivityMainBinding
@@ -42,7 +43,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNavigation() {
         val bottomNavigation = mBinding.bottomNavigation
-        val navController = findNavController(R.id.navHostFragment)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        val navController = navHostFragment.navController
         NavigationUI.setupWithNavController(bottomNavigation, navController)
     }
 }

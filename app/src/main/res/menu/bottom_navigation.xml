@@ -6,25 +6,21 @@
     <item
         android:id="@+id/navHome"
         android:icon="@drawable/ic_home"
-        android:title="@string/home"
-        app:exb_color="@color/blue" />
+        android:title="@string/home" />
 
     <item
         android:id="@+id/navStates"
         android:icon="@drawable/ic_states"
-        android:title="@string/states"
-        app:exb_color="@color/blue" />
+        android:title="@string/states" />
 
     <item
         android:id="@+id/navMaps"
         android:icon="@drawable/ic_maps"
-        android:title="@string/maps"
-        app:exb_color="@color/blue" />
+        android:title="@string/maps" />
 
     <item
         android:id="@+id/navAbout"
         android:icon="@drawable/ic_about"
-        android:title="@string/about"
-        app:exb_color="@color/blue" />
+        android:title="@string/about" />
 
 </menu>

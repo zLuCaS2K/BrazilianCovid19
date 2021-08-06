@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.lucasprojects.braziliancovid19.R
+import com.lucasprojects.braziliancovid19.databinding.BottomSheetDetailsStatesBinding
 import com.lucasprojects.braziliancovid19.databinding.FragmentStatesListBinding
 import com.lucasprojects.braziliancovid19.model.domain.data.Data
 import com.lucasprojects.braziliancovid19.model.domain.data.DataAdapter
@@ -18,31 +18,25 @@ import com.lucasprojects.braziliancovid19.utils.Utils
 
 class StatesListFragment : Fragment() {
 
-    private lateinit var mViewRoot: View
     private var _binding: FragmentStatesListBinding? = null
-    private val binding get() = _binding!!
+    private val mBinding get() = _binding!!
     private val mMainViewModel: MainViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View {
         _binding = FragmentStatesListBinding.inflate(layoutInflater, container, false)
-        mViewRoot = binding.root
-        setupObservers()
-        return mViewRoot
+        setObservesUI()
+        return mBinding.root
     }
 
-    private fun setupObservers() {
+    private fun setObservesUI() {
         mMainViewModel.mListData.observe(viewLifecycleOwner, {
             setupRecyclerStates(it)
         })
     }
 
     private fun setupRecyclerStates(listStates: List<Data>) {
-        binding.recyclerStates.apply {
-            layoutManager = LinearLayoutManager(mViewRoot.context)
+        mBinding.recyclerStates.apply {
+            layoutManager = LinearLayoutManager(mBinding.root.context)
             adapter = DataAdapter(listStates, this@StatesListFragment::onClickState)
             visibility = View.VISIBLE
         }
@@ -53,13 +47,15 @@ class StatesListFragment : Fragment() {
     }
 
     private fun showBottomSheetDetailsState(data: Data) {
-        val bottomSheetDialog = BottomSheetDialog(mViewRoot.context, R.style.BottomSheetDialogTheme)
-        val bottomSheetView = LayoutInflater.from(mViewRoot.context).inflate(R.layout.bottom_sheet_details_states, bottomSheetDialog.findViewById(R.id.containerBottomSheetDetailsStates))
-        bottomSheetView.findViewById<TextView>(R.id.textConfirmedBottomSheet).text = Utils.formatNumberData(data.confirmeds!!.toInt())
-        bottomSheetView.findViewById<TextView>(R.id.textDeathsBottomSheet).text = Utils.formatNumberData(data.deaths!!.toInt())
-        bottomSheetView.findViewById<TextView>(R.id.textPopulationBottomSheet).text = Utils.formatNumberData(data.population!!.toInt())
-        bottomSheetView.findViewById<TextView>(R.id.textDeathPercentBottomSheet).text = Utils.formatDeathPercent(data.deathRate?.toDouble())
-        bottomSheetDialog.setContentView(bottomSheetView)
+        val bottomSheetDialog = BottomSheetDialog(mBinding.root.context, R.style.BottomSheetDialogTheme)
+        val bottomSheetBinding = BottomSheetDetailsStatesBinding.inflate(LayoutInflater.from(activity))
+        bottomSheetBinding.apply {
+            this.textConfirmedBottomSheet.text = Utils.formatNumberData(data.confirmeds)
+            this.textDeathsBottomSheet.text = Utils.formatNumberData(data.deaths)
+            this.textPopulationBottomSheet.text = Utils.formatNumberData(data.population)
+            this.textDeathPercentBottomSheet.text = Utils.formatDeathPercent(data.deathRate.toDouble())
+        }
+        bottomSheetDialog.setContentView(bottomSheetBinding.root)
         bottomSheetDialog.show()
     }
 }
