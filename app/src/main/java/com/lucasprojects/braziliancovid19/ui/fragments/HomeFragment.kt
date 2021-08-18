@@ -31,6 +31,9 @@ class HomeFragment : Fragment() {
             mBinding.textDataConfirmed.text = it.sumOf { n -> n.confirmeds }.toString()
             mBinding.textDataDeaths.text = it.sumOf { n -> n.deaths }.toString()
         })
+        mBinding.btnRefreshData.setOnClickListener {
+            mMainViewModel.getAllData()
+        }
     }
 
     private fun setupRecyclerViewSymptoms() {
